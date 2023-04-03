@@ -9,6 +9,7 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
   { 'j-hui/fidget.nvim', event = 'VeryLazy', config = true },
   { 'onsails/lspkind.nvim' }, -- Used only for nvim-cmp config
+  { 'stevearc/dressing.nvim' },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -47,8 +48,10 @@ return {
   { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function(_, _) require('config.autopairs') end },
   { 'numToStr/Comment.nvim', event = 'VeryLazy', config = true },
   { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('mini.surround').setup() end },
-  { 'simnalamburt/vim-mundo', event = 'VeryLazy'}, -- pynvim requires
-  { 'phaazon/hop.nvim', eveht = 'VeryLazy', branch = 'v2', config = true },
+  { 'simnalamburt/vim-mundo', event = 'VeryLazy' }, -- pynvim requires
+  { 'phaazon/hop.nvim', event = 'VeryLazy', branch = 'v2', config = true },
+  { 'Shatur/neovim-session-manager', config = true, event = 'BufWritePost', cmd = 'SessionManager' },
+
   {
     'lewis6991/gitsigns.nvim', event = 'VeryLazy',
     config = function(_, _) require 'config.gitsigns' end,

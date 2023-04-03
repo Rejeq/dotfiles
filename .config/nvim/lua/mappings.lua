@@ -113,7 +113,6 @@ map('n', '<leader>u', '<cmd> MundoToggle<cr>', 'Toggle blocwise comment')
 -- Hop.nvim
 map('n', '<leader>/', '<cmd> lua require("hop").hint_words()<cr>', 'Jump to word after cursor')
 
-
 -- LspConfig
 map('n', 'gsh', '<cmd> ClangdSwitchSourceHeader<cr>', 'Clangd swith header')
 
@@ -137,3 +136,6 @@ map('n', '<leader>fm', '<cmd> lua vim.lsp.buf.format({ async = true })<cr>', 'Ls
 map('n', '<leader>wa', '<cmd> lua vim.lsp.buf.add_workspace_folder()<cr>', 'Add workspace folder')
 map('n', '<leader>q', '<cmd> lua vim.lsp.buf.remove_workspace_folder()<cr>', 'Remove workspace folder')
 map('n', '<leader>wl', '<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', 'List workspace folders')
+
+-- neovim-session-manager
+map('n', '<leader>cs', '<cmd> SessionManager load_session<CR>', 'Change current Session')
