@@ -66,7 +66,7 @@ map('n', '<leader>fag',
   '<cmd> lua require("telescope.builtin").live_grep{vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--no-ignore"}}<cr>'
   , 'Find all file with grep, ignoring .gitignore')
 
-map('n', '<leader>fb', '<cmake -C BaseToolsmd> Telescope buffers <cr>', 'Find buffers')
+map('n', '<leader>fb', '<cmd> Telescope buffers <cr>', 'Find buffers')
 map('n', '<leader>fp', '<cmd> Telescope help_tags <cr>', 'Find in help page')
 map('n', '<leader>fh', '<cmd> Telescope oldfiles <cr>', 'Find history')
 
