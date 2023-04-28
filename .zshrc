@@ -5,7 +5,9 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   if ! tmux has-session -t $tmuxSessionName 2> /dev/null; then
     # In WSL tmux in startup gives error, this fix should work.
     # Detail: https://github.com/microsoft/WSL/issues/2530
-    systemd-tmpfiles --create
+    if $(uname -r | grep -qi microsoft); then
+      systemd-tmpfiles --create
+    fi
 
     exec tmux new-session -s $tmuxSessionName
   else
