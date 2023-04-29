@@ -49,7 +49,7 @@ return {
   { 'folke/trouble.nvim', event = 'VeryLazy' },
   { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function(_, _) require('config.autopairs') end },
   { 'numToStr/Comment.nvim', event = 'VeryLazy', config = true },
-  { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('mini.surround').setup() end },
+  { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('config.mini-surround') end },
   { 'simnalamburt/vim-mundo', event = 'VeryLazy' }, -- pynvim requires
   { 'phaazon/hop.nvim', branch = 'v2', event = 'VeryLazy', config = true },
   { 'Shatur/neovim-session-manager', event = 'BufWritePost', cmd = 'SessionManager', config = true },
