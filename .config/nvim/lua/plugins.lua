@@ -31,9 +31,11 @@ return {
   },
   {
     'folke/todo-comments.nvim',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
     config = function(_, _) require('todo-comments').setup() end,
   },
+
 
   -- Practice
   { 'ThePrimeagen/vim-be-good' },
@@ -49,8 +51,8 @@ return {
   { 'numToStr/Comment.nvim', event = 'VeryLazy', config = true },
   { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('mini.surround').setup() end },
   { 'simnalamburt/vim-mundo', event = 'VeryLazy' }, -- pynvim requires
-  { 'phaazon/hop.nvim', event = 'VeryLazy', branch = 'v2', config = true },
-  { 'Shatur/neovim-session-manager', config = true, event = 'BufWritePost', cmd = 'SessionManager' },
+  { 'phaazon/hop.nvim', branch = 'v2', event = 'VeryLazy', config = true },
+  { 'Shatur/neovim-session-manager', event = 'BufWritePost', cmd = 'SessionManager', config = true },
 
   {
     'lewis6991/gitsigns.nvim', event = 'VeryLazy',
@@ -63,16 +65,16 @@ return {
     event = 'VeryLazy',
     config = function(_, _) require('config.nvim-tree') end,
   },
+
   {
     'nvim-telescope/telescope-fzf-native.nvim',
-    -- Only load if `cmake` is available
     cond = vim.fn.executable 'cmake' == 1,
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
   },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = { 'nvim-telescope/telescope-fzf-native.nvim', 'nvim-lua/plenary.nvim' },
+    dependencies = { 'telescope-fzf-native.nvim', 'plenary.nvim' },
     event = 'VeryLazy',
     config = function(_, _) require('config.telescope') end,
   },
@@ -98,23 +100,21 @@ return {
     event = 'InsertEnter',
     config = function(_, _) require('config.nvim-cmp') end,
   },
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = 'cmp-nvim-lsp'
-  },
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    dependencies = 'nvim-lua/plenary.nvim',
-    config = function(_, _) require('config.null-ls') end,
-  },
+
   {
     'williamboman/mason.nvim',
-    dependencies = 'nvim-lspconfig',
     config = function(_, _) require('config.mason') end,
   },
   {
-    'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'mason.nvim', 'nvim-lspconfig' },
-    config = function(_, _) require('config.mason-lspconfig') end,
+    'neovim/nvim-lspconfig',
+    dependencies = { 'mason.nvim', 'williamboman/mason-lspconfig.nvim', 'cmp-nvim-lsp' },
+    event = { "BufReadPre", "BufNewFile" },
+    config = function(_, _) require('config.lspconfig') end,
+  },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    dependencies = { 'plenary.nvim', 'mason.nvim' },
+    event = { "BufReadPre", "BufNewFile" },
+    config = function(_, _) require('config.null-ls') end,
   },
 }

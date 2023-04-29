@@ -8,7 +8,7 @@ local masonInstalled = {
   'bashls',
 }
 
-local luaSetup = {
+local luaConfig = {
   settings = {
     Lua = {
       diagnostics = {
@@ -26,14 +26,8 @@ local luaSetup = {
   },
 }
 
-local clangdSetup = {
+local clangdConfig = {
   cmd = { 'clangd', '-j', '2', '--background-index', '--background-index-priority=low' },
-}
-
-local bashlsSetup = {
-  -- root_dir = function(fname)
-  --   return vim.loop.cwd()
-  -- end,
 }
 
 masonLsp.setup({
@@ -43,11 +37,12 @@ masonLsp.setup({
 masonLsp.setup_handlers({
   -- function(server) lsp[server].setup({}) end,
 
-  -- ['clangd'] = function() lsp.clangd.setup(clangdSetup) end,
+  -- ['clangd'] = function() lsp.clangd.setup(clangdConfig) end,
   ['cmake'] = function() lsp.cmake.setup({}) end,
   ['pylsp'] = function() lsp.pylsp.setup({}) end,
-  ['bashls'] = function() lsp.bashls.setup(bashlsSetup) end,
-  ['lua_ls'] = function() lsp.lua_ls.setup(luaSetup) end,
+  ['bashls'] = function() lsp.bashls.setup({}) end,
+  ['lua_ls'] = function() lsp.lua_ls.setup(luaConfig) end,
+  ['rust_analyzer'] = function() lsp.rust_analyzer.setup({}) end,
 })
 
 -- lsp.ccls.setup {
