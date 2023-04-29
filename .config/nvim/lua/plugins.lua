@@ -113,7 +113,7 @@ return {
   },
   {
     'jose-elias-alvarez/null-ls.nvim',
-    dependencies = { 'plenary.nvim', 'mason.nvim' },
+    dependencies = { 'plenary.nvim', 'mason.nvim', 'jay-babu/mason-null-ls.nvim'},
     event = { "BufReadPre", "BufNewFile" },
     config = function(_, _) require('config.null-ls') end,
   },
