@@ -60,10 +60,9 @@ map('n', '<leader>tf', '<cmd> NvimTreeFocus <CR>', 'file explorer Tree Focus')
 -- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files <cr>', 'Find files')
 map('n', '<leader>fa', '<cmd> Telescope find_files follow=true no_ignore=true hidden=true <cr>', 'Find all')
-map('n', '<leader>fg', '<cmd> Telescope live_grep <cr>', 'Find file with grep')
-
+map('n', '<leader>fg', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', 'Find file with grep')
 map('n', '<leader>fag',
-  '<cmd> lua require("telescope.builtin").live_grep{vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--no-ignore"}}<cr>'
+    ':lua require("telescope").extensions.live_grep_args.live_grep_args({ default_text = "--no-ignore "})<cr>'
   , 'Find all file with grep, ignoring .gitignore')
 
 map('n', '<leader>fb', '<cmd> Telescope buffers <cr>', 'Find buffers')

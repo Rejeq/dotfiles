@@ -74,7 +74,11 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = { 'telescope-fzf-native.nvim', 'plenary.nvim' },
+    dependencies = {
+      'plenary.nvim',
+      'telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-live-grep-args.nvim',
+    },
     event = 'VeryLazy',
     config = function(_, _) require('config.telescope') end,
   },
