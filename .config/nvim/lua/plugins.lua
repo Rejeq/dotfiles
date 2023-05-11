@@ -8,7 +8,6 @@ return {
   { 'ellisonleao/gruvbox.nvim' },
   { 'nvim-tree/nvim-web-devicons' },
   { 'j-hui/fidget.nvim', event = 'VeryLazy', config = true },
-  { 'onsails/lspkind.nvim' }, -- Used only for nvim-cmp config
   { 'stevearc/dressing.nvim' },
   {
     'nvim-lualine/lualine.nvim',

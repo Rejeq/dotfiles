@@ -1,5 +1,4 @@
 local luasnip = require('luasnip')
-local lspkind = require('lspkind')
 local cmp = require('cmp')
 
 local function HasWordsBefore()
@@ -20,17 +19,17 @@ local function Enabled()
   end
 end
 
-local function Format(entry, vim_item)
-  return lspkind.cmp_format({
-    with_text = true,
-    menu = {
-      nvim_lsp = "[LSP]",
-      buffer   = "[Buf]",
-      nvim_lua = "[Api]",
-      path     = "[Path]",
-      luasnip  = "[Snip]",
-    }
-  })(entry, vim_item)
+local function Format(entry, item)
+  local menu = {
+    nvim_lsp = "[LSP]",
+    buffer   = "[Buf]",
+    nvim_lua = "[Api]",
+    path     = "[Path]",
+    luasnip  = "[Snip]",
+  }
+
+  item.menu = menu[entry.source.name]
+  return item
 end
 
 -- Default formatting
