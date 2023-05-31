@@ -60,8 +60,7 @@ return {
   { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('config.mini-surround') end },
   { 'simnalamburt/vim-mundo', event = 'VeryLazy' }, -- pynvim requires
   { 'phaazon/hop.nvim', branch = 'v2', event = 'VeryLazy', config = true },
-  { 'Shatur/neovim-session-manager', event = 'BufWritePost', cmd = 'SessionManager', config = true },
-
+  { 'Shatur/neovim-session-manager', config = true },
   {
     'lewis6991/gitsigns.nvim',
     config = function(_, _) require 'config.gitsigns' end,
