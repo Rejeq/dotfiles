@@ -42,7 +42,16 @@ return {
 
   -- Helpers
   { 'ntpeters/vim-better-whitespace', event = 'BufReadPre' },
-  { 'mg979/vim-visual-multi', event = 'VeryLazy' },
+  {
+    'mg979/vim-visual-multi',
+    event = 'BufReadPre',
+    -- TODO: Move to config file
+    config = function(_, _)
+      vim.cmd [[
+      let g:VM_maps["Exit"] = '<C-C>'
+      ]]
+    end,
+  },
   { 'tpope/vim-fugitive' },
   { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy' },
   { 'folke/trouble.nvim', event = 'VeryLazy' },
@@ -54,7 +63,7 @@ return {
   { 'Shatur/neovim-session-manager', event = 'BufWritePost', cmd = 'SessionManager', config = true },
 
   {
-    'lewis6991/gitsigns.nvim', event = 'VeryLazy',
+    'lewis6991/gitsigns.nvim',
     config = function(_, _) require 'config.gitsigns' end,
   },
   {
