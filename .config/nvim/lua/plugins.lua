@@ -6,8 +6,9 @@ return {
 
   -- UI
   { 'ellisonleao/gruvbox.nvim' },
-  { 'nvim-tree/nvim-web-devicons' },
-  { 'j-hui/fidget.nvim', event = 'VeryLazy', config = true },
+  { 'cormacrelf/vim-colors-github' },
+  -- TODO: Remove legacy branch
+  { 'j-hui/fidget.nvim', tag = 'legacy', event = 'VeryLazy', config = true },
   { 'stevearc/dressing.nvim' },
   {
     'nvim-lualine/lualine.nvim',
@@ -124,4 +125,16 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function(_, _) require('config.null-ls') end,
   },
+  -- {
+  --   'mfussenegger/nvim-dap',
+  --   -- dependencies = { 'https://github.com/rcarriga/nvim-dap-ui' },
+  --   config = function(_, _) require('config.nvim-dap') end,
+  -- },
+  {
+    'simrat39/rust-tools.nvim',
+    config = function(_, _) require('config.rust-tools') end,
+  },
+  -- {
+  --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
+  -- },
 }
