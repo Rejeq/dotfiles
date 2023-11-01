@@ -6,6 +6,7 @@ local masonInstalled = {
   'cmake',
   'lua_ls',
   'bashls',
+  'pylsp',
 }
 
 local luaConfig = {
@@ -27,7 +28,24 @@ local luaConfig = {
 }
 
 local clangdConfig = {
-  cmd = { 'clangd', '-j', '2', '--background-index', '--background-index-priority=low' },
+  settings = {
+    clangd = {
+      cmd = { 'clangd', '-j', '2', '--background-index', '--background-index-priority=background', '--pch-storage=disk' },
+    }
+  }
+}
+
+local pylspConfig = {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'E501'},
+          maxLineLength = 100,
+        }
+      }
+    }
+  }
 }
 
 masonLsp.setup({
@@ -43,16 +61,20 @@ masonLsp.setup_handlers({
   ['bashls'] = function() lsp.bashls.setup({}) end,
   ['lua_ls'] = function() lsp.lua_ls.setup(luaConfig) end,
   ['rust_analyzer'] = function() lsp.rust_analyzer.setup({}) end,
+  ['pylsp'] = function() lsp.pylsp.setup(pylspConfig) end,
 })
 
--- lsp.ccls.setup {
---   init_options = {
---     compilationDatabaseDirectory = "build";
---     index = {
---       threads = 1;
---     };
---      cache = {
---        directory = ".cache";
---      };
---   }
--- }
+lsp.clangd.setup(clangdConfig)
+
+lsp.texlab.setup({
+  settings = {
+    texlab = {
+      -- rootDirectory = "report/",
+      -- auxDirectory = "build",
+      build = {
+        executable = 'tectonic',
+        args = { '-X', 'compile', '%f', '--synctex', '--keep-logs', '--keep-intermediates' },
+      },
+    },
+  },
+})
