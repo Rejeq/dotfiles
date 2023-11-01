@@ -6,44 +6,23 @@ local function map(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- navigate within insert mode
-map('i', '<C-h>', '<Left>', 'Move left')
-map('i', '<C-l>', '<Right>', 'Move right')
-map('i', '<C-j>', '<Down>', 'Move down')
-map('i', '<C-k>', '<Up>', 'Move up')
-
 -- Window navigation with ctrl only
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
-map('n', '[[', '?{<CR>w99[{')
-map('n', '][', '/}<CR>b99]}')
-map('n', ']]', 'j0[[%/{<CR>')
-map('n', '[]', 'k$][%?}<CR>')
-
 map('n', '<C-l>', ':nohl <CR>', 'Reset search highlighting')
 
--- Savings
 vim.cmd [[ command! W :w ]]
 map('i', '<C-s>', '<Esc>:w<cr>i', 'Quick save')
 
--- map('n', ';;', ':%s:::g<Left><Left><Left>', 'Quick replace')
--- map('v', ';;', ':s:::g<Left><Left><Left>', 'Quick replace')
+map('n', '<leader>rr', ':%s///g<Left><Left>', 'Quick replace')
+map('v', '<leader>rr', ':s///g<Left><Left>', 'Quick replace')
 
-map('n', '<leader>trn', '<cmd> set relativenumber! <CR>', 'Toggle relative number')
+map('n', '<leader>tn', '<cmd> set relativenumber! <CR>', 'Toggle relative number')
 
 map('n', '<leader>rc', ':update $MYVIMRC <cr> :source $MYVIMRC <cr>', 'Reload config')
-
--- map("n", "<leader>rc", function()
---   vim.cmd([[
---       update $MYVIMRC
---       source $MYVIMRC
---     ]])
---   -- print("Nvim config successfully reloaded!")
--- end,
---   "Reload config")
 
 -- new buffer
 map('n', '<leader>b', '<cmd> enew <CR>', 'New buffer')
@@ -51,8 +30,7 @@ map('n', '<leader>c', '<cmd> bp <BAR> bd #<CR>', 'Close the current buffer tab')
 map('n', '<M-c>', '<cmd> bp <BAR> bd #<CR>', 'Close the current buffer tab:')
 
 
--- TODO: Move plugins mappings after their inited
--- NvimTre
+-- NvimTree
 map('n', '<leader>tt', '<cmd> NvimTreeToggle <CR>', 'Toggle file explorer Tree')
 map('n', '<leader>tf', '<cmd> NvimTreeFocus <CR>', 'file explorer Tree Focus')
 
@@ -97,16 +75,15 @@ map('n', '<M-$>', '<cmd> BufferLineGoToBuffer -1<cr>')
 
 
 -- Comment.nvim
-map('n', '<C-[>', ':BufferLineCyclePrev<CR>', 'Go to previous buffer')
 map('n', '[c', '<plug>(comment_toggle_linewise_current)', 'Toggle linewise comment')
 map('v', '[c', '<plug>(comment_toggle_linewise_visual)', 'Toggle linewise comment')
 
-map('n', '[b', '<plug>(comment_toggle_blockwise_current)', 'Toggle blocwise comment')
-map('v', '[b', '<plug>(comment_toggle_blockwise_visual)', 'Toggle blockwise comment')
+map('n', '[x', '<plug>(comment_toggle_blockwise_current)', 'Toggle blocwise comment')
+map('v', '[x', '<plug>(comment_toggle_blockwise_visual)', 'Toggle blockwise comment')
 
 
 -- vim-mundo
-map('n', '<leader>u', '<cmd> MundoToggle<cr>', 'Toggle blocwise comment')
+map('n', '<leader>u', '<cmd> MundoToggle<cr>', 'Toggle undo tree')
 
 
 -- Hop.nvim
@@ -123,7 +100,7 @@ map('n', 'gr', '<cmd> lua vim.lsp.buf.references()<cr>', 'Lsp references')
 map('n', 'K', '<cmd> lua vim.lsp.buf.hover()<cr>', 'Lsp hover')
 
 map('n', '<leader>D', '<cmd> lua vim.lsp.buf.type_definition()<cr>', 'Lsp definition type')
-map('n', '<leader>sh', '<cmd> lua vim.lsp.buf.signature_help()<cr>', 'Lsp signature help')
+map('n', '<C-k>', '<cmd> lua vim.lsp.buf.signature_help()<cr>', 'Lsp signature help')
 map('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<cr>', 'Lsp rename')
 map('n', '<leader>ca', '<cmd> lua vim.lsp.buf.code_action()<cr>', 'Lsp code_action')
 
@@ -137,4 +114,4 @@ map('n', '<leader>q', '<cmd> lua vim.lsp.buf.remove_workspace_folder()<cr>', 'Re
 map('n', '<leader>wl', '<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', 'List workspace folders')
 
 -- neovim-session-manager
-map('n', '<leader>cs', '<cmd> SessionManager load_session<CR>', 'Change current Session')
+map('n', '<leader>cs', '<cmd> SessionManager load_session<CR>', 'Change session')
