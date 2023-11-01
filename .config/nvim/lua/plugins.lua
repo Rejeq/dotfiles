@@ -36,10 +36,6 @@ return {
   },
 
 
-  -- Practice
-  { 'ThePrimeagen/vim-be-good' },
-  { 'takac/vim-hardtime' },
-
   -- Helpers
   { 'ntpeters/vim-better-whitespace', event = 'BufReadPre' },
   {

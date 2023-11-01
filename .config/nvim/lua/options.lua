@@ -2,7 +2,6 @@ local opt = vim.opt
 local g = vim.g
 
 -- TODO: Do not forget delete this
-vim.g["hardtime_default_on"] = 1
 
 g.mapleader = " "
 g.ftplugin_sql_omni_key = '<C-j>'
