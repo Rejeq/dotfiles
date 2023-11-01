@@ -59,3 +59,7 @@ vim.cmd([[
     silent! colorscheme gruvbox
   endif
 ]])
+
+if vim.g.neovide then
+  require "neovide"
+end
