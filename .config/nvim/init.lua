@@ -18,11 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 require "options"
 require "mappings"
 
--- TODO: Add check colorscheme exist
-vim.o.background = "dark"
-vim.cmd('colorscheme gruvbox')
-
--- require "plugins"
 require("lazy").setup("plugins", {
   performance = {
     rtp = {
@@ -57,3 +52,10 @@ require("lazy").setup("plugins", {
     },
   },
 })
+
+vim.cmd([[
+  if &runtimepath =~? "gruvbox"
+    set background=dark
+    silent! colorscheme gruvbox
+  endif
+]])
