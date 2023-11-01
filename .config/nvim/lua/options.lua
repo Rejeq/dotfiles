@@ -48,4 +48,15 @@ opt.updatetime = 500
 -- when cursor reaches end/beginning of line
 -- opt.whichwrap:append "<>[]hl"
 
+-- Auto update buffers, when changed from outside
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+vim.api.nvim_create_autocmd({ "FileChangedShellPost " }, {
+  command = "lua vim.notify('File changed on disk. Buffer reloaded.')",
+  pattern = { "*" },
+})
+
 g.spellfile_URL = 'https://ftp.nluug.nl/pub/vim/runtime/spell/'
