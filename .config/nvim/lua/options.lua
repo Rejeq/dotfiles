@@ -5,6 +5,7 @@ local g = vim.g
 vim.g["hardtime_default_on"] = 1
 
 g.mapleader = " "
+g.ftplugin_sql_omni_key = '<C-j>'
 
 g.VM_leader = "."
 g.VM_mouse_mappings = true
