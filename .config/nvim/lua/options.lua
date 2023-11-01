@@ -47,3 +47,5 @@ opt.updatetime = 500
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 -- opt.whichwrap:append "<>[]hl"
+
+g.spellfile_URL = 'https://ftp.nluug.nl/pub/vim/runtime/spell/'
