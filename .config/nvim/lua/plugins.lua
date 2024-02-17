@@ -6,7 +6,7 @@ return {
 
   -- UI
   { 'ellisonleao/gruvbox.nvim' },
-  { 'cormacrelf/vim-colors-github' },
+  { 'NLKNguyen/papercolor-theme' },
   -- TODO: Remove legacy branch
   { 'j-hui/fidget.nvim', tag = 'legacy', event = 'VeryLazy', config = true },
   { 'stevearc/dressing.nvim' },
@@ -50,7 +50,7 @@ return {
     end,
   },
   { 'tpope/vim-fugitive' },
-  { 'lukas-reineke/indent-blankline.nvim', event = 'VeryLazy' },
+  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", event = 'VeryLazy', config = function(_, _) require("ibl").setup() end },
   { 'folke/trouble.nvim', event = 'VeryLazy' },
   { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function(_, _) require('config.autopairs') end },
   { 'numToStr/Comment.nvim', event = 'VeryLazy', config = true },
@@ -62,14 +62,6 @@ return {
     'lewis6991/gitsigns.nvim',
     config = function(_, _) require 'config.gitsigns' end,
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    tag = 'nightly',
-    event = 'VeryLazy',
-    config = function(_, _) require('config.nvim-tree') end,
-  },
-
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     cond = vim.fn.executable 'cmake' == 1,
@@ -131,8 +123,9 @@ return {
   --   config = function(_, _) require('config.nvim-dap') end,
   -- },
   {
-    'simrat39/rust-tools.nvim',
-    config = function(_, _) require('config.rust-tools') end,
+    'mrcjkb/rustaceanvim',
+    version = '^4',
+    ft = { 'rust' },
   },
   -- {
   --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
