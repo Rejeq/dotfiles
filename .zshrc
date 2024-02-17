@@ -1,3 +1,9 @@
+# Prevent runnning zsh in tty
+read pcomm < /proc/$PPID/comm
+if [ "$pcomm" = "login" ]; then
+  exec bash
+fi
+
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   tmuxSessionName="${USER}_session"
 
