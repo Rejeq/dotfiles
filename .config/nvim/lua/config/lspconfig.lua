@@ -5,7 +5,6 @@ local masonInstalled = {
   'clangd',
   'cmake',
   'lua_ls',
-  'bashls',
   'pylsp',
 }
 
@@ -57,8 +56,6 @@ masonLsp.setup_handlers({
 
   -- ['clangd'] = function() lsp.clangd.setup(clangdConfig) end,
   ['cmake'] = function() lsp.cmake.setup({}) end,
-  ['pylsp'] = function() lsp.pylsp.setup({}) end,
-  ['bashls'] = function() lsp.bashls.setup({}) end,
   ['lua_ls'] = function() lsp.lua_ls.setup(luaConfig) end,
   ['rust_analyzer'] = function() lsp.rust_analyzer.setup({}) end,
   ['pylsp'] = function() lsp.pylsp.setup(pylspConfig) end,

@@ -6,7 +6,6 @@ local ensure_installed = {
   'shfmt',
   'rustfmt',
   'yamlfmt',
-  'sql-formatter',
 }
 
 mason_null_ls.setup({
