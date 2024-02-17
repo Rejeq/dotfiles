@@ -25,7 +25,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export DISPLAY=":1"
+# export DISPLAY=":1"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER='nvim +Man!'
@@ -45,20 +45,9 @@ source $ZSH/oh-my-zsh.sh
 export HISTFILESIZE=250000
 export HISTSIZE=250000
 
-alias cl="clear"
-alias ex="exit"
 alias :q="exit"
 
-alias xdo=xdg-open
-
-alias -s {cxx,cpp,c++,c,hpp,h,py,txt,html,css,js}=vim
-alias -s {png,jpg,gif,svg,tiff,bmp,raw}=xdg-open
-alias -s {mp3,ogg,wave}=xdg-open
-alias -s {docx,doc,pdf,ppt,pptx}=xdg-open
-
-if command -v nvim >> /dev/null; then
-   alias vim="nvim"
-fi
+# alias xdo=xdg-open
 
 if command -v exa >> /dev/null; then
    alias ls="exa --icons"
