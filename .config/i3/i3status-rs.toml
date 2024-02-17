@@ -1,0 +1,38 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "gruvbox-dark"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "net"
+interval = 2
+format = "^icon_net_up $speed_up ^icon_net_down $speed_down "
+
+[[block]]
+block = "memory"
+interval = 5
+format = "$icon $mem_used_percents.eng(w:2) "
+format_alt = "$icon_swap $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "cpu"
+interval = 5
+format = "$icon $utilization "
+
+[[block]]
+block = "sound"
+format = "^icon_volume {$volume.eng(w:3) |} "
+max_vol = 200
+name = "alsa_output.pci-0000_00_1b.0.iec958-stereo.monitor"
+device_kind = "source"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+interval = 1
+format = "$timestamp.datetime(f:'%a %d/%m %T') "
