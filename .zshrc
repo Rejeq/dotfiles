@@ -41,13 +41,15 @@ plugins=(git zsh-syntax-highlighting z command-not-found)
 # [[ -a "/etc/zsh_command_not_found" ]] && source /etc/zsh_command_not_found
 
 source $ZSH/oh-my-zsh.sh
+# Looks like it enabled by default
+# setopt histignorespace
 
 export HISTFILESIZE=250000
 export HISTSIZE=250000
 
 alias :q="exit"
 
-# alias xdo=xdg-open
+alias xdo=xdg-open
 
 if command -v exa >> /dev/null; then
    alias ls="exa --icons"
@@ -82,4 +84,4 @@ eval `dircolors ~/.solarized-256dark.dircolors`
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsth.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/go/bin:$PATH"
