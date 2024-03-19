@@ -26,7 +26,7 @@ opt.softtabstop = 2
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
-opt.mouse = nil
+opt.mouse = "a"
 
 -- Numbers
 opt.number = true
