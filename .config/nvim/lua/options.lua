@@ -52,7 +52,7 @@ opt.updatetime = 500
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
   command = "if mode() != 'c' | checktime | endif",
-  pattern = { "*" },
+  pattern = { "if &buftype != 'nofile'" },
 })
 vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
   command = "lua vim.notify('File changed on disk. Buffer reloaded.')",
