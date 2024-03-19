@@ -5,7 +5,11 @@ return {
   { 'lewis6991/impatient.nvim' },
 
   -- UI
-  { 'ellisonleao/gruvbox.nvim' },
+  { 'ellisonleao/gruvbox.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function(_, _) require('config.gruvbox') end,
+  },
   { 'NLKNguyen/papercolor-theme' },
   -- TODO: Remove legacy branch
   { 'j-hui/fidget.nvim', tag = 'legacy', event = 'VeryLazy', config = true },

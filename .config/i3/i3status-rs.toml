@@ -2,6 +2,13 @@ icons_format = "{icon}"
 
 [theme]
 theme = "gruvbox-dark"
+[theme.overrides]
+idle_bg = "#1c1c1c"
+idle_fg = "#d4be98"
+info_fg = "#d4be98"
+good_fg = "#d4be98"
+warning_fg = "#d4be98"
+critical_fg = "#d4be98"
 
 [icons]
 icons = "material-nf"

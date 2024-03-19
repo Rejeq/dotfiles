@@ -157,7 +157,7 @@ bindsym $mod+r mode "resize"
 
 # set primary gruvbox colorscheme colors
 # stolen from: https://github.com/a-schaefers/i3-wm-gruvbox-theme
-set $bg #282828
+set $bg #1c1c1c
 set $red #cc241d
 set $green #98971a
 set $yellow #d79921
