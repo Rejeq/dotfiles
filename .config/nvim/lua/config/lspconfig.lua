@@ -62,6 +62,7 @@ masonLsp.setup_handlers({
 })
 
 lsp.clangd.setup(clangdConfig)
+lsp.gopls.setup({})
 
 lsp.texlab.setup({
   settings = {
