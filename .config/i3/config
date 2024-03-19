@@ -10,8 +10,14 @@ font pango:Iosevka Nerd Font Mono 10
 
 smart_borders on
 
+# Hide the mouse when it's inactive
+exec --no-startup-id unclutter --timeout 20
+
 # Start wallpaper
 exec --no-startup-id sh ~/.fehbg
+
+# Start polkit gui auth
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 bindsym Print exec flameshot gui
 
