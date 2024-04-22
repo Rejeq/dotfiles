@@ -36,7 +36,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git zsh-syntax-highlighting z command-not-found)
+plugins=(git zsh-syntax-highlighting z)
 
 # [[ -a "/etc/zsh_command_not_found" ]] && source /etc/zsh_command_not_found
 
