@@ -22,8 +22,8 @@ return {
   },
   {
     'akinsho/bufferline.nvim',
+    branch = 'main',
     dependencies = 'nvim-tree/nvim-web-devicons',
-    version = 'v3.*',
     event = 'VeryLazy',
     config = function(_, _) require('config.bufferline') end,
   },
