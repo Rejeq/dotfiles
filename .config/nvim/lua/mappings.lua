@@ -115,3 +115,6 @@ map('n', '<leader>wl', '<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_f
 
 -- neovim-session-manager
 map('n', '<leader>cs', '<cmd> SessionManager load_session<CR>', 'Change session')
+
+-- yazi
+map('n', '<leader>ef', '<cmd>Yazi<CR>', "Enter to Folder")

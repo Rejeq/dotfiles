@@ -135,7 +135,10 @@ return {
   --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
   -- },
   {
-    'kelly-lin/ranger.nvim',
-    config = function(_, _) require('config.ranger') end,
-  }
+    "DreamMaoMao/yazi.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+  },
 }
