@@ -1,9 +1,12 @@
 local telescope = require('telescope')
+local actions = require('telescope.actions')
 
 local mappings = {
   i = {
-    ['<C-Up>'] = require('telescope.actions').cycle_history_prev,
-    ['<C-Down>'] = require('telescope.actions').cycle_history_next,
+    ['<C-Up>'] = actions.cycle_history_prev,
+    ['<C-Down>'] = actions.cycle_history_next,
+    ["<C-[>"] = actions.results_scrolling_left,
+    ["<C-]>"] = actions.results_scrolling_right,
   },
 }
 
