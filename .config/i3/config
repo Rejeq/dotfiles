@@ -167,6 +167,81 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "mouse" {
+  set $slow 1
+  set $quick 10
+  set $fast 50
+
+  # Mouse movement (slow/fine-tuned) -- vim keybindings
+  bindsym h exec xdotool mousemove_relative -- -$slow 0
+  bindsym j exec xdotool mousemove_relative 0 $slow
+  bindsym k exec xdotool mousemove_relative -- 0 -$slow
+  bindsym l exec xdotool mousemove_relative $slow 0
+
+  # Mouse movement (slow/fine-tuned) -- arrow keys
+  bindsym Left exec xdotool mousemove_relative -- -$slow 0
+  bindsym Down exec xdotool mousemove_relative 0 $slow
+  bindsym Up exec xdotool mousemove_relative -- 0 -$slow
+  bindsym Right exec xdotool mousemove_relative $slow 0
+
+  # Mouse movement (quicker) -- vim keybindings
+  bindsym $mod+h exec xdotool mousemove_relative -- -$quick 0
+  bindsym $mod+j exec xdotool mousemove_relative 0 $quick
+  bindsym $mod+k exec xdotool mousemove_relative -- 0 -$quick
+  bindsym $mod+l exec xdotool mousemove_relative $quick 0
+
+  # Mouse movement (quicker) -- arrow keys
+  bindsym $mod+Left exec xdotool mousemove_relative -- -$quick 0
+  bindsym $mod+Down exec xdotool mousemove_relative 0 $quick
+  bindsym $mod+Up exec xdotool mousemove_relative -- 0 -$quick
+  bindsym $mod+Right exec xdotool mousemove_relative $quick 0
+
+  # Mouse movement (fast) -- vim keybindings
+  bindsym $mod+Shift+h exec xdotool mousemove_relative -- -$fast 0
+  bindsym $mod+Shift+j exec xdotool mousemove_relative 0 $fast
+  bindsym $mod+Shift+k exec xdotool mousemove_relative -- 0 -$fast
+  bindsym $mod+Shift+l exec xdotool mousemove_relative $fast 0
+
+   # Mouse movement (fast) -- arrow keys
+  bindsym $mod+Shift+Left exec xdotool mousemove_relative -- -$fast 0
+  bindsym $mod+Shift+Down exec xdotool mousemove_relative 0 $fast
+  bindsym $mod+Shift+Up exec xdotool mousemove_relative -- 0 -$fast
+  bindsym $mod+Shift+Right exec xdotool mousemove_relative $fast 0
+
+   # Left Click
+  bindsym f exec xdotool click 1
+
+  # Middle Click
+  bindsym d exec xdotool click 2
+
+  # Right Click
+  bindsym s exec xdotool click 3
+
+  # Left Click-and-drag
+  bindsym Shift+f exec xdotool mousedown 1
+
+  # Middle Click-and-drag
+  bindsym Shift+d exec xdotool mousedown 2
+
+  # Right Click-and-drag
+  bindsym Shift+s exec xdotool mousedown 3
+
+  # Left Drag release
+  bindsym $mod+f exec xdotool mouseup 1
+
+  # Middle Drag release
+  bindsym $mod+d exec xdotool mouseup 2
+
+  # Right Drag release
+  bindsym $mod+s exec xdotool mouseup 3
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+n mode "default"
+}
+
+bindsym $mod+n mode "mouse"
+
 # set primary gruvbox colorscheme colors
 # stolen from: https://github.com/a-schaefers/i3-wm-gruvbox-theme
 set $bg #1c1c1c
