@@ -29,7 +29,7 @@ local luaConfig = {
 local clangdConfig = {
   settings = {
     clangd = {
-      cmd = { 'clangd', '-j', '2', '--background-index', '--background-index-priority=background', '--pch-storage=disk' },
+      -- cmd = { 'clangd', '-j', '2', '--background-index', '--background-index-priority=background', '--pch-storage=disk' },
     }
   }
 }
@@ -39,7 +39,7 @@ local pylspConfig = {
     pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = {'E501'},
+          ignore = { 'E501' },
           maxLineLength = 100,
         }
       }
@@ -57,7 +57,7 @@ masonLsp.setup_handlers({
   -- ['clangd'] = function() lsp.clangd.setup(clangdConfig) end,
   ['cmake'] = function() lsp.cmake.setup({}) end,
   ['lua_ls'] = function() lsp.lua_ls.setup(luaConfig) end,
-  ['rust_analyzer'] = function() lsp.rust_analyzer.setup({}) end,
+  -- ['rust_analyzer'] = function() lsp.rust_analyzer.setup({}) end,
   ['pylsp'] = function() lsp.pylsp.setup(pylspConfig) end,
 })
 
