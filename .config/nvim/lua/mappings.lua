@@ -28,20 +28,13 @@ map('n', '<leader>rc', ':update $MYVIMRC <cr> :source $MYVIMRC <cr>', 'Reload co
 -- new buffer
 map('n', '<leader>b', '<cmd> enew <CR>', 'New buffer')
 map('n', '<leader>c', '<cmd> bp <BAR> bd #<CR>', 'Close the current buffer tab')
-map('n', '<M-c>', '<cmd> bp <BAR> bd #<CR>', 'Close the current buffer tab:')
-
-
--- NvimTree
-map('n', '<leader>tt', '<cmd> NvimTreeToggle <CR>', 'Toggle file explorer Tree')
-map('n', '<leader>tf', '<cmd> NvimTreeFocus <CR>', 'file explorer Tree Focus')
-
 
 -- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files <cr>', 'Find files')
 map('n', '<leader>fa', '<cmd> Telescope find_files follow=true no_ignore=true hidden=true <cr>', 'Find all')
 map('n', '<leader>fg', ':lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', 'Find file with grep')
 map('n', '<leader>fag',
-    ':lua require("telescope").extensions.live_grep_args.live_grep_args({ default_text = "--no-ignore "})<cr>'
+  ':lua require("telescope").extensions.live_grep_args.live_grep_args({ default_text = "--no-ignore "})<cr>'
   , 'Find all file with grep, ignoring .gitignore')
 
 map('n', '<leader>fb', '<cmd> Telescope buffers <cr>', 'Find buffers')
