@@ -1,8 +1,9 @@
-local function map(mode, lhs, rhs, desc)
+local function map(mode, lhs, rhs, desc, extra_opts)
   local options = { desc = desc, noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options)
+  if extra_opts then
+    options = vim.tbl_extend('force', options, extra_opts)
   end
+
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
