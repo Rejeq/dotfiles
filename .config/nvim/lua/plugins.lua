@@ -135,10 +135,11 @@ return {
   --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
   -- },
   {
-    "DreamMaoMao/yazi.nvim",
+    "mikavilpas/yazi.nvim",
     dependencies = {
-      "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
+    event = "VeryLazy",
+    config = function(_, _) require('config.yazi') end,
   },
 }

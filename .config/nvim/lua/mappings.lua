@@ -111,4 +111,5 @@ map('n', '<leader>wl', '<cmd> lua print(vim.inspect(vim.lsp.buf.list_workspace_f
 map('n', '<leader>cs', '<cmd> SessionManager load_session<CR>', 'Change session')
 
 -- yazi
-map('n', '<leader>ef', '<cmd>Yazi<CR>', "Enter to Folder")
+map('n', '<leader>ef', function() require('yazi').yazi() end, "Enter to Folder")
+map('n', '<leader>ewf', function() require('yazi').yazi(nil, vim.fn.getcwd()) end, "Enter to Working Folder")
