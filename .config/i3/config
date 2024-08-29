@@ -33,6 +33,12 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+for_window [class="ffplay"] floating enable
+for_window [class="scrcpy"] floating enable
+for_window [class="vlc"] floating enable
+for_window [title="^Android Emulator.*"] floating enable
+for_window [title="Figure *"] floating enable
+
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
