@@ -2,7 +2,6 @@ return {
   -- Core
   { 'folke/lazy.nvim', version = '*' },
   { 'nvim-lua/plenary.nvim', lazy = true },
-  { 'lewis6991/impatient.nvim' },
 
   -- UI
   { 'ellisonleao/gruvbox.nvim',
@@ -11,8 +10,11 @@ return {
     config = function(_, _) require('config.gruvbox') end,
   },
   { 'NLKNguyen/papercolor-theme' },
-  -- TODO: Remove legacy branch
-  { 'j-hui/fidget.nvim', tag = 'legacy', event = 'VeryLazy', config = true },
+  { 'j-hui/fidget.nvim',
+    version = 'v1.*',
+    event = 'VeryLazy',
+    config = true
+  },
   { 'stevearc/dressing.nvim' },
   {
     'nvim-lualine/lualine.nvim',
@@ -22,7 +24,6 @@ return {
   },
   {
     'akinsho/bufferline.nvim',
-    branch = 'main',
     dependencies = 'nvim-tree/nvim-web-devicons',
     event = 'VeryLazy',
     config = function(_, _) require('config.bufferline') end,
@@ -60,7 +61,6 @@ return {
   { 'numToStr/Comment.nvim', event = 'VeryLazy', config = true },
   { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('config.mini-surround') end },
   { 'simnalamburt/vim-mundo', event = 'VeryLazy' }, -- pynvim requires
-  { 'phaazon/hop.nvim', branch = 'v2', event = 'VeryLazy', config = true },
   { 'Shatur/neovim-session-manager', config = true },
   {
     'lewis6991/gitsigns.nvim',
@@ -85,6 +85,7 @@ return {
 
   {
     'L3MON4D3/LuaSnip',
+    event = 'VeryLazy',
     dependencies = {
       'rafamadriz/friendly-snippets',
       config = function()
@@ -107,6 +108,7 @@ return {
 
   {
     'williamboman/mason.nvim',
+    event = 'VeryLazy',
     config = function(_, _) require('config.mason') end,
   },
   {
@@ -123,14 +125,18 @@ return {
   },
   -- {
   --   'mfussenegger/nvim-dap',
-  --   -- dependencies = { 'https://github.com/rcarriga/nvim-dap-ui' },
+  --   dependencies = { 'https://github.com/rcarriga/nvim-dap-ui', 'nvim-neotest/nvim-nio' },
+  -- },
+  -- {
+  --   'jay-babu/mason-nvim-dap.nvim',
+  --   event = 'VeryLazy',
   --   config = function(_, _) require('config.nvim-dap') end,
   -- },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^4',
-    ft = { 'rust' },
-  },
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^4',
+  --   ft = { 'rust' },
+  -- },
   -- {
   --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
   -- },

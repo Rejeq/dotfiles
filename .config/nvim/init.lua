@@ -1,6 +1,4 @@
-vim.defer_fn(function()
-  pcall(require, "impatient")
-end, 0)
+vim.loader.enable()
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
