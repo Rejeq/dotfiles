@@ -25,10 +25,6 @@ map('n', '<leader>tn', '<cmd> set relativenumber! <CR>', 'Toggle relative number
 
 map('n', '<leader>rc', ':update $MYVIMRC <cr> :source $MYVIMRC <cr>', 'Reload config')
 
--- new buffer
-map('n', '<leader>b', '<cmd> enew <CR>', 'New buffer')
-map('n', '<leader>c', '<cmd> bp <BAR> bd #<CR>', 'Close the current buffer tab')
-
 -- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files <cr>', 'Find files')
 map('n', '<leader>fa', '<cmd> Telescope find_files follow=true no_ignore=true hidden=true <cr>', 'Find all')
