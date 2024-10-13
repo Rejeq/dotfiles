@@ -118,8 +118,8 @@ return {
     config = function(_, _) require('config.lspconfig') end,
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
-    dependencies = { 'plenary.nvim', 'mason.nvim', 'jay-babu/mason-null-ls.nvim'},
+    'nvimtools/none-ls.nvim',
+    dependencies = { 'plenary.nvim', 'mason.nvim', 'jay-babu/mason-null-ls.nvim' },
     event = { "BufReadPre", "BufNewFile" },
     config = function(_, _) require('config.null-ls') end,
   },
