@@ -1,13 +1,13 @@
 local opt = vim.opt
 local g = vim.g
 
--- TODO: Do not forget delete this
-
 g.mapleader = " "
 g.ftplugin_sql_omni_key = '<C-j>'
 
 g.VM_leader = "."
 g.VM_mouse_mappings = true
+
+g.spellfile_URL = 'https://ftp.nluug.nl/pub/vim/runtime/spell/'
 
 -- global statusline
 opt.laststatus = 3
@@ -39,7 +39,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
 opt.timeoutlen = 400
-opt.undofile = true   -- Remember the undo history of an already closed file
+opt.undofile = true -- Remember the undo history of an already closed file
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = 500
@@ -59,4 +59,10 @@ vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
   pattern = { "*" },
 })
 
-g.spellfile_URL = 'https://ftp.nluug.nl/pub/vim/runtime/spell/'
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.typ",
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_buf_set_option(buf, "filetype", "typst")
+  end,
+})
