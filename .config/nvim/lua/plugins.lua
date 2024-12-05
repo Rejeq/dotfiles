@@ -1,16 +1,18 @@
 return {
   -- Core
-  { 'folke/lazy.nvim', version = '*' },
+  { 'folke/lazy.nvim',       version = '*' },
   { 'nvim-lua/plenary.nvim', lazy = true },
 
   -- UI
-  { 'ellisonleao/gruvbox.nvim',
+  {
+    'ellisonleao/gruvbox.nvim',
     lazy = false,
     priority = 1000,
     config = function(_, _) require('config.gruvbox') end,
   },
   { 'NLKNguyen/papercolor-theme' },
-  { 'j-hui/fidget.nvim',
+  {
+    'j-hui/fidget.nvim',
     version = 'v1.*',
     event = 'VeryLazy',
     config = true
@@ -55,12 +57,20 @@ return {
     end,
   },
   { 'tpope/vim-fugitive' },
-  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", event = 'VeryLazy', config = function(_, _) require("ibl").setup() end },
-  { 'folke/trouble.nvim', event = 'VeryLazy' },
-  { 'windwp/nvim-autopairs', event = 'InsertEnter', config = function(_, _) require('config.autopairs') end },
-  { 'numToStr/Comment.nvim', event = 'VeryLazy', config = true },
-  { 'echasnovski/mini.surround', version = '*', config = function(_, _) require('config.mini-surround') end },
-  { 'simnalamburt/vim-mundo', event = 'VeryLazy' }, -- pynvim requires
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
+    event = 'VeryLazy',
+    config = function(
+        _, _)
+      require("ibl").setup()
+    end
+  },
+  { 'folke/trouble.nvim',            cmd = 'Trouble',       config = function(_, _) require("trouble").setup() end },
+  { 'windwp/nvim-autopairs',         event = 'InsertEnter', config = function(_, _) require('config.autopairs') end },
+  { 'numToStr/Comment.nvim',         event = 'VeryLazy',    config = true },
+  { 'echasnovski/mini.surround',     version = '*',         config = function(_, _) require('config.mini-surround') end },
+  { 'simnalamburt/vim-mundo',        event = 'VeryLazy' }, -- pynvim requires
   { 'Shatur/neovim-session-manager', config = true },
   {
     'lewis6991/gitsigns.nvim',
@@ -69,7 +79,8 @@ return {
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     cond = vim.fn.executable 'cmake' == 1,
-    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    build =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -118,10 +129,8 @@ return {
     config = function(_, _) require('config.lspconfig') end,
   },
   {
-    'nvimtools/none-ls.nvim',
-    dependencies = { 'plenary.nvim', 'mason.nvim', 'jay-babu/mason-null-ls.nvim' },
-    event = { "BufReadPre", "BufNewFile" },
-    config = function(_, _) require('config.null-ls') end,
+    "nvimtools/none-ls.nvim",
+    config = function() require("config.null-ls") end,
   },
   -- {
   --   'mfussenegger/nvim-dap',
@@ -132,11 +141,11 @@ return {
   --   event = 'VeryLazy',
   --   config = function(_, _) require('config.nvim-dap') end,
   -- },
-  -- {
-  --   'mrcjkb/rustaceanvim',
-  --   version = '^4',
-  --   ft = { 'rust' },
-  -- },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4',
+    ft = { 'rust' },
+  },
   -- {
   --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
   -- },
