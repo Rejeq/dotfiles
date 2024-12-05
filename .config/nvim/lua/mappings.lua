@@ -7,23 +7,10 @@ local function map(mode, lhs, rhs, desc, extra_opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- Window navigation with ctrl only
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
-
-map('n', '<C-l>', ':nohl <CR>', 'Reset search highlighting')
-
 vim.cmd [[ command! W :w ]]
-map('i', '<C-s>', '<Esc>:w<cr>i', 'Quick save')
-
-map('n', '<leader>rr', ':%s///g<Left><Left>', 'Quick replace')
-map('v', '<leader>rr', ':s///g<Left><Left>', 'Quick replace')
-
+map('n', '<C-l>', ':nohl <CR>', 'Reset search highlighting')
 map('n', '<leader>tn', '<cmd> set relativenumber! <CR>', 'Toggle relative number')
 
-map('n', '<leader>rc', ':update $MYVIMRC <cr> :source $MYVIMRC <cr>', 'Reload config')
 
 -- Telescope
 map('n', '<leader>ff', '<cmd> Telescope find_files <cr>', 'Find files')
@@ -61,7 +48,6 @@ map('n', '<M-6>', '<cmd> BufferLineGoToBuffer 6<cr>')
 map('n', '<M-7>', '<cmd> BufferLineGoToBuffer 7<cr>')
 map('n', '<M-8>', '<cmd> BufferLineGoToBuffer 8<cr>')
 map('n', '<M-9>', '<cmd> BufferLineGoToBuffer 9<cr>')
-map('n', '<M-$>', '<cmd> BufferLineGoToBuffer -1<cr>')
 
 
 -- Comment.nvim
@@ -76,12 +62,8 @@ map('v', '[x', '<plug>(comment_toggle_blockwise_visual)', 'Toggle blockwise comm
 map('n', '<leader>u', '<cmd> MundoToggle<cr>', 'Toggle undo tree')
 
 
--- Hop.nvim
-map('n', '<leader>/', '<cmd> lua require("hop").hint_words()<cr>', 'Jump to word after cursor')
-
 -- LspConfig
 map('n', 'gsh', '<cmd> ClangdSwitchSourceHeader<cr>', 'Clangd swith header')
-
 map('n', '<C-[>', ':BufferLineCyclePrev<CR>', 'Go to previous buffer')
 map('n', 'gD', '<cmd> lua vim.lsp.buf.declaration()<cr>', 'Lsp declaration')
 map('n', 'gd', '<cmd> lua vim.lsp.buf.definition()<cr>', 'Lsp definition')
