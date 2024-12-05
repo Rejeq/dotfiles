@@ -1,14 +1,17 @@
 local masonLsp = require('mason-lspconfig')
 local lsp = require('lspconfig')
 
-local masonInstalled = {
-  'clangd',
-  'cmake',
-  'lua_ls',
-  'pylsp',
-}
+masonLsp.setup({
+  ensure_installed = nil,
+  automatic_installation = false,
+  handlers = {},
+})
 
-local luaConfig = {
+lsp.cmake.setup {}
+lsp.gopls.setup {}
+lsp.clangd.setup {}
+
+lsp.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -26,15 +29,7 @@ local luaConfig = {
   },
 }
 
-local clangdConfig = {
-  settings = {
-    clangd = {
-      -- cmd = { 'clangd', '-j', '2', '--background-index', '--background-index-priority=background', '--pch-storage=disk' },
-    }
-  }
-}
-
-local pylspConfig = {
+lsp.pylsp.setup {
   settings = {
     pylsp = {
       plugins = {
@@ -47,22 +42,24 @@ local pylspConfig = {
   }
 }
 
-masonLsp.setup({
-  ensure_installed = masonInstalled
-})
+-- lsp.ltex.setup {
+--   cmd = { "ltex-ls" },
+--   filetypes = { "markdown" },
+--   flags = { debounce_text_changes = 300 },
+-- }
 
-masonLsp.setup_handlers({
-  -- function(server) lsp[server].setup({}) end,
-
-  -- ['clangd'] = function() lsp.clangd.setup(clangdConfig) end,
-  ['cmake'] = function() lsp.cmake.setup({}) end,
-  ['lua_ls'] = function() lsp.lua_ls.setup(luaConfig) end,
-  -- ['rust_analyzer'] = function() lsp.rust_analyzer.setup({}) end,
-  ['pylsp'] = function() lsp.pylsp.setup(pylspConfig) end,
-})
-
-lsp.clangd.setup(clangdConfig)
-lsp.gopls.setup({})
+lsp.tinymist.setup {
+  single_file_support = true,
+  root_dir = function()
+    return vim.fn.getcwd()
+  end,
+  settings = {
+    exportPdf = "onSave",
+    outputPath = "$root/target/$name",
+    systemFonts = true,
+    fontPaths = { "usr/share/fonts/TTF" },
+  }
+}
 
 lsp.texlab.setup({
   settings = {
@@ -75,4 +72,25 @@ lsp.texlab.setup({
       },
     },
   },
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "typst" },
+  callback = function(_)
+    local root_files = { 'main.typ' }
+    local paths = vim.fs.find(root_files, { stop = vim.env.HOME })
+    local root_dir = vim.fs.dirname(paths[1])
+
+    vim.lsp.start({
+      name = "typst_lsp",
+      cmd = { 'typst-languagetool-lsp' },
+      root_dir = root_dir,
+      init_options = {
+        host = "http://127.0.0.1",
+        port = "8889",
+        root = root_dir,
+        main = root_dir .. "/main.typ",
+      },
+    })
+  end,
 })
