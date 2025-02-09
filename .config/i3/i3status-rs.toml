@@ -27,7 +27,7 @@ format = "$icon $utilization "
 [[block]]
 block = "temperature"
 format = " $icon $max "
-format_alt = " $icon $min min, $max max, $average avg "
+format_alt = "$icon $min min, $max max, $average avg "
 good = 20
 idle = 50
 interval = 10
@@ -36,9 +36,6 @@ chip = "*-isa-*"
 [[block]]
 block = "sound"
 format = "^icon_volume {$volume.eng(w:3)|} "
-max_vol = 200
-name = "alsa_output.pci-0000_00_1b.0.iec958-stereo.monitor"
-device_kind = "source"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"

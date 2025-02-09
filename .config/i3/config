@@ -13,6 +13,9 @@ smart_borders on
 # Hide the mouse when it's inactive
 exec --no-startup-id unclutter --timeout 20
 
+# Remap menu key with super key
+exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
+
 # Start wallpaper
 exec --no-startup-id sh ~/.fehbg
 
@@ -266,7 +269,7 @@ bar {
     # Iosevka NF icons are too small, so we use icons from FontAwesome
     font pango:Iosevka, FontAwesome 10
 
-    output primary
+    # output primary
     status_command i3status-rs ~/.config/i3/i3status-rs.toml
     colors {
         # bar background color
