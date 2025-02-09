@@ -66,7 +66,8 @@ local bypass_rev = ya.sync(function(_)
 end)
 
 return {
-    entry = function(_, args)
+    entry = function(_, job)
+        local args = job.args
         local use_smart_enter = args and args[1] == "smart_enter"
         local is_reverse = args and args[1] == "reverse"
 

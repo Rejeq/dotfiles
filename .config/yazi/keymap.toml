@@ -1,6 +1,6 @@
 [[manager.prepend_keymap]]
 on   = [ "l" ]
-run  = "plugin --sync smart-enter"
+run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[manager.prepend_keymap]]
@@ -10,7 +10,7 @@ desc = "Recursively enter child directory, skipping children with only a single 
 
 [[manager.prepend_keymap]]
 on = [ "H" ]
-run = "plugin bypass --args=reverse"
+run = "plugin bypass reverse"
 desc = "Recursively enter parent directory, skipping parents with only a single subdirectory"
 
 [[manager.prepend_keymap]]
