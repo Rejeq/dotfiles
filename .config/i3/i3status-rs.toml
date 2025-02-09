@@ -44,3 +44,6 @@ cmd = "pavucontrol"
 block = "time"
 interval = 1
 format = "$timestamp.datetime(f:'%a %d/%m %T') "
+[[block.click]]
+button = "right"
+cmd = "kronometer"
