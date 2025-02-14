@@ -1,0 +1,27 @@
+diff --git a/.zshrc b/.zshrc
+index 2451e12..fdffbb4 100644
+--- a/.zshrc
++++ b/.zshrc
+@@ -117,7 +122,22 @@ export P10K_HOME="$ZSH_CONFIG_DIR/plugins/powerlevel10k"
+ 
+ # git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_SH_HOME"
+ export ZSH_SH_HOME="$ZSH_CONFIG_DIR/plugins/zsh-syntax-highlighting"
++
++# zsh-syntax-highlighting uses some regex expressions that not supported in termux
++#
++# There bug in zsh for android that doesn't allow regex expression for absolute path.
++# This would result in error:
++# ls /data/data/com.termux/files/home/.config/zsh/plugins/zsh-syntax-highlighting/highlighters/*/(/)
++#
++# But this will work fine:
++# ls .config/zsh/plugins/zsh-syntax-highlighting/highlighters/*/(/)
++#
++# So to fix this error we need to override this variable and move working directory to home
++export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$(realpath -s --relative-to="$HOME" "$ZSH_SH_HOME/highlighters")
++
++cd $HOME
+ [[ ! -f $ZSH_SH_HOME/zsh-syntax-highlighting.zsh ]] || source $ZSH_SH_HOME/zsh-syntax-highlighting.zsh
++cd - > /dev/null
+ 
+ if command -v zoxide >> /dev/null; then
+   eval "$(zoxide init zsh)"

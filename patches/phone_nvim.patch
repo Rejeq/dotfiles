@@ -1,0 +1,26 @@
+diff --git a/.config/nvim/lua/mappings.lua b/.config/nvim/lua/mappings.lua
+index cd897ae..5f2b260 100644
+--- a/.config/nvim/lua/mappings.lua
++++ b/.config/nvim/lua/mappings.lua
+@@ -7,6 +7,8 @@ local function map(mode, lhs, rhs, desc, extra_opts)
+   vim.keymap.set(mode, lhs, rhs, options)
+ end
+ 
++map('n', '<Esc>', '<Nop>', 'Disable annyoing buffer shifting')
++
+ vim.cmd [[ command! W :w ]]
+ map('n', '<C-l>', ':nohl <CR>', 'Reset search highlighting')
+ map('n', '<leader>tn', '<cmd> set relativenumber! <CR>', 'Toggle relative number')
+diff --git a/.config/nvim/lua/options.lua b/.config/nvim/lua/options.lua
+index 1f43e25..af5164c 100644
+--- a/.config/nvim/lua/options.lua
++++ b/.config/nvim/lua/options.lua
+@@ -38,7 +51,7 @@ opt.signcolumn = "yes"
+ opt.splitbelow = true
+ opt.splitright = true
+ opt.termguicolors = true
+-opt.timeoutlen = 400
++opt.timeoutlen = 1500
+ opt.undofile = true -- Remember the undo history of an already closed file
+ 
+ -- interval for writing swap file to disk, also used by gitsigns
