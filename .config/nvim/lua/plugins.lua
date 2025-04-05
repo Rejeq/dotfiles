@@ -46,16 +46,6 @@ return {
 
   -- Helpers
   { 'ntpeters/vim-better-whitespace', event = 'BufReadPre' },
-  {
-    'mg979/vim-visual-multi',
-    event = 'BufReadPre',
-    -- TODO: Move to config file
-    config = function(_, _)
-      vim.cmd [[
-      let g:VM_maps["Exit"] = '<C-C>'
-      ]]
-    end,
-  },
   { 'tpope/vim-fugitive' },
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -133,19 +123,10 @@ return {
     config = function() require("config.null-ls") end,
   },
   -- {
-  --   'mfussenegger/nvim-dap',
-  --   dependencies = { 'https://github.com/rcarriga/nvim-dap-ui', 'nvim-neotest/nvim-nio' },
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^4',
+  --   ft = { 'rust' },
   -- },
-  -- {
-  --   'jay-babu/mason-nvim-dap.nvim',
-  --   event = 'VeryLazy',
-  --   config = function(_, _) require('config.nvim-dap') end,
-  -- },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^4',
-    ft = { 'rust' },
-  },
   -- {
   --   "https://git.sr.ht/~p00f/clangd_extensions.nvim",
   -- },
