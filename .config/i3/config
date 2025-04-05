@@ -23,6 +23,8 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 bindsym Print exec flameshot gui
+bindsym Shift+Print exec "flameshot gui --raw | tesseract -l rus stdin stdout | xclip -in -selection clipboard"
+
 
 # Disable mouse movement when switching beetween monitors
 mouse_warping none
